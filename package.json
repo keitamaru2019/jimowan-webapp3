@@ -1,0 +1,16 @@
+{
+  "name": "jimowan-webapp",
+  "version": "1.1.0",
+  "description": "地元ワンダーランド（ジモワン）LP + WEBアプリ MVP / password protected Render ready",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["jimowan", "jwl", "local", "wonderland", "map", "render"],
+  "author": "地元はどこでもワンダーランド",
+  "license": "UNLICENSED"
+}

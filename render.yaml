@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: jimowan-webapp
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JIMOWAN_PASSWORD
+        sync: false
+      - key: JIMOWAN_SESSION_SECRET
+        generateValue: true
+      # 登録・投票データをRender上で消したくない場合は、RenderでDiskを追加し、
+      # Mount Pathを /var/data にしたうえで下記環境変数を設定してください。
+      # - key: JIMOWAN_DATA_PATH
+      #   value: /var/data/db.json
