@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>地元ワンダーランド＝ジモワン｜知られていないことに価値がある</title>
+  <meta name="description" content="Googleで検索できない超マニアックな地元推しネタを、地図・ランキング・部室コミュニティで楽しむWebアプリ。" />
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="styles.css?v=26" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="地元ワンダーランド＝ジモワン ホーム">
+      <span class="brand-mark">地</span>
+      <span><strong>地元ワンダーランド＝ジモワン</strong><small>Wonderland / JWL</small></span>
+    </a>
+    <nav>
+      <a href="#concept" data-i18n="navConcept">コンセプト</a>
+      <a href="#features" data-i18n="navFeatures">機能</a>
+      <a href="#ranking" data-i18n="navRanking">ランキング</a>
+      <a class="nav-cta" href="/app?version=v26" data-i18n="navApp">アプリを開く</a>
+      <a class="nav-logout" href="/logout" data-i18n="navLogout">ログアウト</a>
+      <a class="nav-cta youtube-link" href="https://www.youtube.com/watch?v=j4o1Nv15iG4&t=12s" target="_blank" rel="noopener" data-i18n="whatIsJimowan">ジモワンって何？</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Language">EN</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="top-banner" aria-label="地元ワンダーランド＝ジモワン バナーアート">
+      <div class="top-banner-inner">
+        <img src="assets/jimowan-banner-art.jpg" alt="地元ワンダーランド＝ジモワン 特派員によるマニアックすぎる地域情報アプリ" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="landing-search-section" aria-label="ワンダーランド検索">
+      <div class="landing-search-card">
+        <p class="eyebrow" data-i18n="searchEyebrow">Wonderland Search</p>
+        <h2 data-i18n="searchTitle">今日はどんなワンダーランドに行こうかな？</h2>
+        <form id="landingSearchForm" class="landing-search-form">
+          <input id="landingSearchInput" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="例：親子で、夜に一杯、疲れている、昭和レトロ、練馬の畑" autocomplete="off">
+          <button class="button primary" type="submit" data-i18n="searchButton">探す</button>
+        </form>
+        <p class="landing-search-hint" data-i18n="searchHint">気分や目的を入れると、意外な地元ワンダーランドを提案します。</p>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">知られていないことに価値がある</p>
+        <h1 data-i18n-html="heroTitle">遊園地がなくてもいい。<br>つなげば、そこは夢の場所になる。</h1>
+        <p class="lead" data-i18n="heroLead">地元ファンしか知らない、コアなドキドキを体験しよう。検索できない地元推しネタを、マップとランキングで遊ぶワンダーランドアプリです。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/app?version=v26" data-i18n="heroCta">ワンダーランドを体験する</a>
+          <a class="button youtube-hero" href="https://www.youtube.com/watch?v=j4o1Nv15iG4&t=12s" target="_blank" rel="noopener" data-i18n="whatIsJimowan">ジモワンって何？</a>
+          <a class="button secondary" href="#map-samples" data-i18n="heroMap">マップ例を見る</a>
+        </div>
+        <div class="hero-stats" aria-label="サービスの主要な値">
+          <div><strong>3軸</strong><span>知らなかった / 予想外 / 初体験したい</span></div>
+          <div><strong>Map</strong><span>スポット登録から地図生成</span></div>
+          <div><strong>Ranking</strong><span>投票で順位が更新</span></div>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="アプリ画面のイメージ">
+        <div class="phone-frame">
+          <div class="mini-app-header">今回のJWLはこちら</div>
+          <div class="mini-card hot">
+            <span class="rank-badge">1位</span>
+            <h3>練馬＋江古田珈琲とジャズの大人部室ワンダーランド</h3>
+            <p>元スナック珈琲から、自転車持ち込み可ジャズバーへ。</p>
+            <div class="score-row"><span>知らなかった</span><meter value="5" min="0" max="5"></meter></div>
+            <div class="score-row"><span>予想外</span><meter value="5" min="0" max="5"></meter></div>
+            <div class="score-row"><span>初体験したい</span><meter value="5" min="0" max="5"></meter></div>
+          </div>
+          <div class="route-preview">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="concept" class="section split">
+      <div>
+        <p class="eyebrow">Concept</p>
+        <h2>旅行情報ではなく、<br>“地元推しネタを楽しむ部室”。</h2>
+      </div>
+      <p>JWLは有名観光地の案内ではなく、「なぜそれが地元の人にとって面白いのか」を持ち寄る仕組みです。マニアックな地元推しネタを登録し、体験コースにして、仲間と点数を競います。</p>
+    </section>
+
+    <section id="features" class="section">
+      <p class="eyebrow">Functions</p>
+      <h2>LPだけではなく、実際に触れるアプリを同梱</h2>
+      <div class="feature-grid">
+        <article>
+          <span class="icon">01</span>
+          <h3>ワンダーランド登録</h3>
+          <p>タイトル、エリア、情報源、キャッチコピー、スポット、緯度経度、滞在時間、メモを登録。登録後すぐランキングと地図に反映します。</p>
+        </article>
+        <article>
+          <span class="icon">02</span>
+          <h3>ワンダーランドマップ作成</h3>
+          <p>登録したスポットを番号付きマーカーと線で表示。タイムテーブルも同時に作成し、印刷・PDF保存できます。</p>
+        </article>
+        <article>
+          <span class="icon">03</span>
+          <h3>ワンダーランドランキング</h3>
+          <p>「知らなかった」「予想外だった」「初体験したい」の3軸を5点満点で投票。投票のたびに順位を再計算します。</p>
+        </article>
+        <article>
+          <span class="icon">04</span>
+          <h3>登録者同士の競争</h3>
+          <p>情報源ごとに地元ネタを投稿し、総合点で競争。定番よりも“知られていない魅力”が上位に来る設計です。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ranking" class="section ranking-story">
+      <div>
+        <p class="eyebrow">Wonderland Ranking</p>
+        <h2>なぜ定番観光より、江古田の珈琲とジャズが上位になるのか。</h2>
+        <p>有名で誰もが知っているものより、「え、そんな地元の顔があったの？」という驚きに点が入る。これがワンダーランドのランキング思想です。</p>
+      </div>
+      <ol class="landing-ranking">
+        <li><span>練馬＋江古田珈琲とジャズの大人部室ワンダーランド</span><strong>1,1,330P</strong></li>
+        <li><span>練馬＋都市農業に世界が震えるワンダーランド</span><strong>1,720P</strong></li>
+        <li><span>練馬＋江古田サブカルさんぽ公式ミックス</span><strong>1,700P</strong></li>
+        <li><span>練馬＋石神井公園ぶらり文化散歩</span><strong>500P</strong></li>
+      </ol>
+    </section>
+
+    <section id="map-samples" class="section">
+      <p class="eyebrow">Sample Wonderland Maps</p>
+      <h2>添付マップをすべて現行フォーマットに変換して登録済み</h2>
+<div class="sample-grid">
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/sengawa.pdf" target="_blank" rel="noopener">
+            <img src="samples/sengawa.png" alt="仙川 文学とやすらぎの地図サンプル" loading="lazy">
+            <h3>仙川 文学とやすらぎ</h3>
+            <p>文学・庭園・カフェをつなぐ最大3時間コース。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/kawagoe.pdf" target="_blank" rel="noopener">
+            <img src="samples/kawagoe.png" alt="川越 渋み再発見の地図サンプル" loading="lazy">
+            <h3>川越 渋み再発見</h3>
+            <p>寺社・城・レトロな小江戸の根っこを歩く。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/shinkawa.pdf" target="_blank" rel="noopener">
+            <img src="samples/shinkawa.png" alt="中央区新川の地図サンプル" loading="lazy">
+            <h3>中央区新川</h3>
+            <p>珈琲、神社、水辺をめぐる2時間ミニツアー。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/asaka.pdf" target="_blank" rel="noopener">
+            <img src="samples/asaka.png" alt="朝霞すごいぞの地図サンプル" loading="lazy">
+            <h3>朝霞すごいぞ</h3>
+            <p>駅前から公園、博物館、川辺まで広がる発見。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/heiwadai.pdf" target="_blank" rel="noopener">
+            <img src="samples/heiwadai.png" alt="平和台・氷川台の地図サンプル" loading="lazy">
+            <h3>平和台・氷川台</h3>
+            <p>畑、たい焼き、銭湯、地域施設をつなぐ練馬散歩。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/kurosaki.pdf" target="_blank" rel="noopener">
+            <img src="samples/kurosaki.png" alt="黒崎駅 寄り道の地図サンプル" loading="lazy">
+            <h3>黒崎駅 寄り道</h3>
+            <p>駅前から丘陵史跡、神社、商店街まで歩く2時間。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/sakai_kofun.pdf" target="_blank" rel="noopener">
+            <img src="samples/sakai_kofun.png" alt="堺・北区 古墳とため池の地図サンプル" loading="lazy">
+            <h3>堺・北区 古墳とため池</h3>
+            <p>ため池、古墳、寺社、クラフトビールをつなぐ4時間。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/sapporo_hokudai.pdf" target="_blank" rel="noopener">
+            <img src="samples/sapporo_hokudai.png" alt="札幌・北大コア歩きの地図サンプル" loading="lazy">
+            <h3>札幌・北大コア歩き</h3>
+            <p>札幌駅から北大キャンパス、時計台、夜の一杯まで。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/mikawa_takahama.pdf" target="_blank" rel="noopener">
+            <img src="samples/mikawa_takahama.png" alt="三河高浜 鬼と瓦の地図サンプル" loading="lazy">
+            <h3>三河高浜 鬼と瓦</h3>
+            <p>鬼瓦、土管坂、瓦文化を歩く渋い4時間。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/mitaka_quiet.pdf" target="_blank" rel="noopener">
+            <img src="samples/mitaka_quiet.png" alt="三鷹 知と静寂の地図サンプル" loading="lazy">
+            <h3>三鷹 知と静寂</h3>
+            <p>NTT技術史料館と国立天文台をめぐる午後3時間。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/funabashi_nichidai.pdf" target="_blank" rel="noopener">
+            <img src="samples/funabashi_nichidai.png" alt="船橋日大前 寄り道の地図サンプル" loading="lazy">
+            <h3>船橋日大前 寄り道</h3>
+            <p>パン、公園、図書館、バルをつなぐ一日ミニ旅。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card">
+          <a class="sample-link" href="/samples/kitazawa_yorimichi.pdf" target="_blank" rel="noopener">
+            <img src="samples/kitazawa_yorimichi.png" alt="世田谷代田→下北沢の地図サンプル" loading="lazy">
+            <h3>世田谷代田→下北沢</h3>
+            <p>温泉宿、緑道、線路街を味わう約2時間さんぽ。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/hoya.pdf" target="_blank" rel="noopener">
+            <img src="samples/hoya.png" alt="保谷 渋みと緑の地図サンプル" loading="lazy">
+            <h3>保谷 渋みと緑</h3>
+            <p>緑と公園をつなぐ保谷のパークホッピング。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/isehara.pdf" target="_blank" rel="noopener">
+            <img src="samples/isehara.png" alt="伊勢原 大山と湯あがりの地図サンプル" loading="lazy">
+            <h3>伊勢原 大山と湯あがり</h3>
+            <p>大山参拝と湯あがりを楽しむ半日散歩。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/jiyugaoka_midorigaoka.pdf" target="_blank" rel="noopener">
+            <img src="samples/jiyugaoka_midorigaoka.png" alt="自由が丘＆緑ヶ丘の地図サンプル" loading="lazy">
+            <h3>自由が丘＆緑ヶ丘</h3>
+            <p>おしゃれな街と緑の落ち着きをつなぐ。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/utsunomiya_yorimichi.pdf" target="_blank" rel="noopener">
+            <img src="samples/utsunomiya_yorimichi.png" alt="JR宇都宮駅 寄り道の地図サンプル" loading="lazy">
+            <h3>JR宇都宮駅 寄り道</h3>
+            <p>駅前から文化、食、夜の表情まで寄り道。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/kamata.pdf" target="_blank" rel="noopener">
+            <img src="samples/kamata.png" alt="蒲田すごいぞの地図サンプル" loading="lazy">
+            <h3>蒲田すごいぞ</h3>
+            <p>黒湯、神社、路地を楽しむ蒲田の街歩き。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/nishikasai.pdf" target="_blank" rel="noopener">
+            <img src="samples/nishikasai.png" alt="西葛西 冒険の街の地図サンプル" loading="lazy">
+            <h3>西葛西 冒険の街</h3>
+            <p>親子公園と多文化グルメのワンダーランド。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/enoshima_autumn.pdf" target="_blank" rel="noopener">
+            <img src="samples/enoshima_autumn.png" alt="秋の江の島の地図サンプル" loading="lazy">
+            <h3>秋の江の島</h3>
+            <p>海風と参道を渋く歩く秋の江の島。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/kakegawa.pdf" target="_blank" rel="noopener">
+            <img src="samples/kakegawa.png" alt="掛川渋いぞの地図サンプル" loading="lazy">
+            <h3>掛川渋いぞ</h3>
+            <p>城下町、文化、花鳥園をつなぐ渋旅。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/marugame.pdf" target="_blank" rel="noopener">
+            <img src="samples/marugame.png" alt="丸亀すごいぞの地図サンプル" loading="lazy">
+            <h3>丸亀すごいぞ</h3>
+            <p>城、港、アート、骨付鳥をめぐる街歩き。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/miyamaedaira_yukemuri.pdf" target="_blank" rel="noopener">
+            <img src="samples/miyamaedaira_yukemuri.png" alt="宮前平ゆけむりの地図サンプル" loading="lazy">
+            <h3>宮前平ゆけむり</h3>
+            <p>坂道と温泉をつなぐゆけむり散歩。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/kunitachi.pdf" target="_blank" rel="noopener">
+            <img src="samples/kunitachi.png" alt="国立駅ミニ旅の地図サンプル" loading="lazy">
+            <h3>国立駅ミニ旅</h3>
+            <p>旧駅舎、大学通り、文教の街を歩く。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+        <article class="sample-card v26-added">
+          <a class="sample-link" href="/samples/sakuradai_yorimichi.pdf" target="_blank" rel="noopener">
+            <img src="samples/sakuradai_yorimichi.png" alt="桜台駅 寄り道の地図サンプル" loading="lazy">
+            <h3>桜台駅 寄り道</h3>
+            <p>美術館、銭湯、珈琲の練馬さんぽ。</p>
+            <span class="sample-open">PDFで開く</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cta-panel">
+      <p class="eyebrow">Start</p>
+      <h2>まずは、あなたの地元の“誰も知らないすごさ”を登録してください。</h2>
+      <a class="button primary" href="/app">アプリを開く</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 地元はどこでもワンダーランド / Jimowan prototype</p>
+    <a href="/app">アプリへ</a>
+  </footer>
+  <script src="site-v26.js?v=26"></script>
+</body>
+</html>

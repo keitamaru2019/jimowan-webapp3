@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ログイン｜地元ワンダーランド＝ジモワン</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="styles.css?v=15" />
+</head>
+<body class="login-body">
+  <main class="login-shell">
+    <section class="login-card">
+      <a class="brand login-brand" href="/login" aria-label="地元ワンダーランド＝ジモワン ログイン">
+        <span class="brand-mark">地</span>
+        <span><strong>地元ワンダーランド＝ジモワン</strong><small>Jimowan Limited Preview</small></span>
+      </a>
+      <p class="eyebrow">限定公開版</p>
+      <h1>仲間だけが見られる<br>ワンダーランド試作アプリ</h1>
+      <p class="lead small-lead">共有されたパスワードを入力してください。LP、登録機能、ランキング、ワンダーランドマップ作成画面に入れます。</p>
+
+      <form id="loginForm" class="login-form">
+        <label>パスワード
+          <input id="password" name="password" type="password" autocomplete="current-password" required autofocus placeholder="パスワードを入力">
+        </label>
+        <button class="button primary" type="submit">ログインする</button>
+      </form>
+      <p id="loginMessage" class="login-message" role="status" aria-live="polite"></p>
+      <p class="login-hint">ローカル確認時の初期パスワードは <code>jimowan</code> です。Render公開時は環境変数 <code>JIMOWAN_PASSWORD</code> で必ず変更してください。</p>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('loginMessage');
+    const next = new URLSearchParams(location.search).get('next') || '/';
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      message.textContent = '確認中です...';
+      message.className = 'login-message';
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: document.getElementById('password').value })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'ログインできませんでした。');
+        location.href = next.startsWith('/') ? next : '/';
+      } catch (error) {
+        message.textContent = error.message;
+        message.className = 'login-message error';
+      }
+    });
+  </script>
+</body>
+</html>
